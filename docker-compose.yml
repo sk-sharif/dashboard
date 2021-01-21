@@ -1,0 +1,10 @@
+version: '3.3'
+services: 
+   dashboard:
+      build: 
+        context: .
+        dockerfile: Dockerfile.distroless
+      container_name: dashboard
+      ports: 
+        - 8082:80
+    
