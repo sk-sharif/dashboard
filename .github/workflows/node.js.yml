@@ -1,24 +1,18 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: Node.js CI
+name: Node Github CI
 
 on:
   push:
-    branches: [ main ]
-    
-    
-    strategy:
-      matrix:
-        node-version: [10.x]
+    branches:
+      - main
 
 jobs:
   test:
 
-    runs-on: ubuntu_latest
+    runs-on: ubuntu-latest
 
-    
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -26,9 +20,13 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm i
-    - run: npm run build --if-present
-      
+    - name: npm install and test
+      run: |
+        npm install
+        npm test
+      env:
+        CI: true
+
   deploy:
     needs: [test]
     runs-on: ubuntu-latest
@@ -39,11 +37,10 @@ jobs:
       with:
         host: dev06.01cloud.com
         username: sshrestha
-        key: ${{ secrets.MYPROJECT_SECRET}}
+        key: ${{ secrets.MYPROJECT_SECRET }}
         port: 22
         script: |
           cd ~/dashboard
           git pull origin main
-          npm install 
-          npm run build
-          pm2 start npm -- start
+          npm install --production
+          pm2 restart node-app
