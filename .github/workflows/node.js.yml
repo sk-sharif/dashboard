@@ -6,13 +6,13 @@ on:
       - main
 
 jobs:
-  test:
+  build:
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [ 10.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -20,28 +20,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install and test
+    - name: npm install and build
       run: |
         npm install
         npm run build --if-present
-        npm test
-      env:
-        CI: true
+        npm start pm2 -- start
 
-  deploy:
-    needs: [test]
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: SSH and deploy node app
-      uses: appleboy/ssh-action@master
-      with:
-        host: dev06.01cloud.com
-        username: sshrestha
-        key: ${{ secrets.MYPROJECT_SECRET }}
-        port: 22
-        script: |
-          cd ~/dashboard
-          git pull origin main
-          npm install --production
-          pm2 restart node-app
+  
