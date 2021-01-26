@@ -3,7 +3,7 @@ services:
    dashboard:
       build: 
         context: .
-        dockerfile: Dockerfile.distroless
+        dockerfile: Dockerfile
       container_name: dashboard
       ports: 
         - 8082:80
