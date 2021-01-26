@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  test:
+  testnodeapplication:
 
     runs-on: self-hosted
 
@@ -46,7 +46,7 @@ jobs:
   
   
   deploynodeapp:
-    needs: [test]
+    needs: [testnodeapplication]
     runs-on: ubuntu-latest
 
     steps:
@@ -59,7 +59,7 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         script: |
           cd ~/dashboard
-          git pull origin main
+        
           docker-compose up -d
          
       
