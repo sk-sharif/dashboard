@@ -27,8 +27,25 @@ jobs:
         pm2 start npm -- start
       env:
         CI: true
+    
+    - name: Login to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
-  deploy:
+    - name: Build and push
+      id: docker_build
+      uses: docker/build-push-action@v2
+      with:
+        context: ./
+        file: ./Dockerfile
+        push: true
+        tags: sagark24/nodeapplication
+  
+  
+  
+  deploynodeapp:
     needs: [test]
     runs-on: ubuntu-latest
 
@@ -44,20 +61,7 @@ jobs:
           cd ~/dashboard
           git pull origin main
           docker-compose up -d
-          
-          
-    - name: Login to Docker Hub
-      uses: docker/login-action@v1
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}     
-    - name: Build and push
-      id: docker_build
-      uses: docker/build-push-action@v2
-      with:
-        context: .
-        dockerfile: .Dockerfile
-        push: true
-        tags: sagark24/nodeapplication
-        
+         
+      
+    
 
