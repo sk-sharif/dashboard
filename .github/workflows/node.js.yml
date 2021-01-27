@@ -59,7 +59,7 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         script: |
           mkdir -p ~/my-app/
-          cd ~/my--app/
+          cd ~/my-app/
           https://github.com/sagarshrestha24/dashboard.git
           cd ~/dashboard
           docker-compose build
