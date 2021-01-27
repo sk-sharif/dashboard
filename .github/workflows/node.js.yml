@@ -58,9 +58,8 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.SSH_PORT }}
         script: |
-          
-          git clone https://github.com/sagarshrestha24/dashboard.git
           cd ~/dashboard
+          git pull origin main
           docker-compose up -d
          
       
