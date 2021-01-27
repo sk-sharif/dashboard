@@ -59,6 +59,7 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         script: |
           cd ~/dashboard
+          git pull origin main
           docker-compose up -d
          
       
