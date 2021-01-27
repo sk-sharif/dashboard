@@ -58,9 +58,9 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.SSH_PORT }}
         script: |
-          mkdir -p ~/my-express-app/
-          cd ~/my-express-app/
-          git clone https://github.com/sagarshrestha24/dashboard.git
+          mkdir -p ~/my-app/
+          cd ~/my--app/
+          https://github.com/sagarshrestha24/dashboard.git
           cd ~/dashboard
           docker-compose build
           docker-compose up -d 
