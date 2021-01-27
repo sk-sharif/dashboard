@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  test:
+  testnodeapplication:
 
     runs-on: self-hosted
 
@@ -46,7 +46,7 @@ jobs:
   
   
   deploynodeapp:
-    needs: [test]
+    needs: [testnodeapplication]
     runs-on: ubuntu-latest
 
     steps:
