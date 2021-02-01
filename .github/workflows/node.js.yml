@@ -68,6 +68,7 @@ jobs:
           cd ~/my-app/
           git clone https://github.com/sagarshrestha24/dashboard.git
           cd dashboard
+          docker-compose down
           docker-compose build
           docker-compose up -d 
          
