@@ -47,7 +47,7 @@ jobs:
         context: ./
         file: ./Dockerfile
         push: true
-        tags: sagark24/nodeapplication
+        tags: sagark24/nodeapplication:v1
   
   
   
