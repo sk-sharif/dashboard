@@ -118,39 +118,40 @@ Example using random algorithm
  - kubectl apply -f random-example.yaml
 4. Check the experiment status:
 
-The output of the above command should look similar to like :
-                         currentOptimalTrial:
-                  bestTrialName: random-example-smpc6ws2
-                  observation:
-                    metrics:
-                      - latest: "0.993170"
-                        max: "0.993170"
-                        min: "0.920293"
-                        name: Train-accuracy
-                      - latest: "0.978006"
-                        max: "0.978603"
-                        min: "0.959295"
-                        name: Validation-accuracy
-                  parameterAssignments:
-                    - name: lr
-                      value: "0.02889324678979306"
-                    - name: num-layers
-                      value: "5"
-                    - name: optimizer
-                      value: sgd
-                runningTrialList:
-                  - random-example-26d5wzn2
-                  - random-example-98fpd29m
-                  - random-example-x2vjlzzv
-                startTime: "2020-10-23T21:27:53Z"
-                succeededTrialList:
-                  - random-example-n9c4j4cv
-                  - random-example-qfb68jpb
-                  - random-example-s96tq48v
-                  - random-example-smpc6ws2
-                trials: 7
-                trialsRunning: 3
-                trialsSucceeded: 4
+### The output of the above 
+     currentOptimalTrial:
+        bestTrialName: random-example-smpc6ws2
+        observation:
+          metrics:
+            - latest: "0.993170"
+              max: "0.993170"
+              min: "0.920293"
+              name: Train-accuracy
+            - latest: "0.978006"
+              max: "0.978603"
+              min: "0.959295"
+              name: Validation-accuracy
+        parameterAssignments:
+          - name: lr
+            value: "0.02889324678979306"
+          - name: num-layers
+            value: "5"
+          - name: optimizer
+            value: sgd
+      runningTrialList:
+        - random-example-26d5wzn2
+        - random-example-98fpd29m
+        - random-example-x2vjlzzv
+      startTime: "2020-10-23T21:27:53Z"
+      succeededTrialList:
+        - random-example-n9c4j4cv
+        - random-example-qfb68jpb
+        - random-example-s96tq48v
+        - random-example-smpc6ws2
+      trials: 7
+      trialsRunning: 3
+      trialsSucceeded: 4
+
   
 
 
