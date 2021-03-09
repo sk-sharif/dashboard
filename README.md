@@ -26,6 +26,8 @@ Create a Jupyter notebook server and add a notebook
 7. We can also set GPU
 8. Last We click on lunch to set a nootbook server
 
+# When the notebook server is available, click Connect to connect to it.
+
 After setup a notebook server,we will see jupyter notebook server on browser
 In jupyter notebook,We tested image detection project
 The main benefits of using notebbok is that we can create notebook containers or pods directly in the cluster, rather than locally on their workstations.
@@ -38,9 +40,9 @@ There are two ways to run pipeline in notebook
 
 We have tested both using kale as well as jupyter notebook.
 
-Examples: Fashion MNIST(Image Detection),Road Safety Examples,Simple Mathematics Operation,Object Detection
 
-# Pipelines
+
+## Pipelines
 
 The Kubeflow Pipelines platform consists of:
 
@@ -158,11 +160,11 @@ Example using random algorithm
 
 View the results of the experiment in the Katib UI:
 
-1. Open the Katib UI as described above.
-2. Click Hyperparameter Tuning on the Katib home page.
-3. Open the Katib menu panel on the left, then open the HP section and click Monitor
-4. You should be able to view the list of experiments
-5. Click the name of the experiment, random-example.
-6. There should be a graph showing the level of validation and train accuracy for various combinations of the hyperparameter values (learning rate, number of layers, and optimizer)
+    1. Open the Katib UI as described above.
+    2. Click Hyperparameter Tuning on the Katib home page.
+    3. Open the Katib menu panel on the left, then open the HP section and click Monitor
+    4. You should be able to view the list of experiments
+    5. Click the name of the experiment, random-example.
+    6. There should be a graph showing the level of validation and train accuracy for various combinations of the hyperparameter values (learning rate, number of layers, and optimizer)
 
 
