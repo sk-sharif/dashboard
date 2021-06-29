@@ -24,6 +24,7 @@ jobs:
       run: |
         npm install
         npm run build 
+        docker-compose up -d
       
     
     
@@ -51,26 +52,7 @@ jobs:
   
   
   
-  deploynodeapp:
-    needs: [testnodeapplication]
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: SSH and deploy node app
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SSH_KEY }}
-        port: ${{ secrets.SSH_PORT }}
-        script: |
-          mkdir -p ~/my-app1/
-          cd ~/my-app/
-          git clone https://github.com/sagarshrestha24/dashboard.git
-          cd dashboard
-          docker-compose down
-          docker-compose build
-          docker-compose up -d 
+  
          
       
     
