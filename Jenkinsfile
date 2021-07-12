@@ -13,7 +13,7 @@ pipeline {
     }
      stage('Build Unit test') {
       steps{
-        echo 'unit tests'
+        echo 'unit test'
       }
     }
   }
