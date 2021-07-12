@@ -168,3 +168,4 @@ View the results of the experiment in the Katib UI:
     6. There should be a graph showing the level of validation and train accuracy for various combinations of the hyperparameter values (learning rate, number of layers, and optimizer)
 
 
+hlo
