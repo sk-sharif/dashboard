@@ -1,13 +1,15 @@
 pipeline {
   environment {
-    registry = "sagark24/dashboard"
-    registryCredential = 'dockerhub'
+    registry = "akanshagiriya/dashboard02"
+    registryCredential = 'Docker_cred'
+    dockerImage = ''
   }
   agent any
   stages {
     stage('Cloning Git') {
       steps {
-          git branch: 'main', credentialsId: 'GITHUB_TOKEN', url: 'https://github.com/sagarshrestha24/dashboard.git'
+          git branch: 'main', url: 'https://github.com/sk-sharif/dashboard.git'
+          sh 'git checkout -b develop || true'
       }
     }
      stage('Building image') {
@@ -29,7 +31,7 @@ pipeline {
     stage('Deploy') {
       steps{
         script {
-          sh "docker run -d --name admindashboard -p 8083:8083 sagark24/dashboard"
+          sh "docker run -d --name admindashboard02 -p 8086:8083 akanshagiriya/dashboard02"
         }
       }
     }
