@@ -8,29 +8,12 @@ pipeline {
     stage('Cloning Git') {
       steps {
           git branch: 'main', credentialsId: 'GITHUB_TOKEN', url: 'https://github.com/sagarshrestha24/dashboard.git'
+          sh 'git checkout -b feature'
       }
     }
-     stage('Building image') {
+     stage('Build Unit test') {
       steps{
-        script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
-        }
-      }
-    }
-    stage('Deploy Image') {
-      steps{
-        script {
-          docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
-          }
-        }
-      }
-    }
-    stage('Deploy') {
-      steps{
-        script {
-          sh "docker run -d --name admindashboard -p 8083:8083 sagark24/dashboard"
-        }
+        echo 'unit test'
       }
     }
   }
