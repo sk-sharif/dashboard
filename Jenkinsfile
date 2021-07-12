@@ -1,13 +1,13 @@
 pipeline {
   environment {
-    registry = "sagark24/dashboard"
-    registryCredential = 'dockerhub'
+    registry = "akanshagiriya/dashboard"
+    registryCredential = 'Docker_cred'
   }
   agent any
   stages {
     stage('Cloning Git') {
       steps {
-          git branch: 'main', credentialsId: 'GITHUB_TOKEN', url: 'https://github.com/sagarshrestha24/dashboard.git'
+          git branch: 'main', url: 'https://github.com/sk-sharif/dashboard.git'
           sh 'git checkout -b feature'
       }
     }
