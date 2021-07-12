@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-          git branch: 'feature', url: 'https://github.com/sk-sharif/dashboard.git'
+          git branch: 'main', url: 'https://github.com/sk-sharif/dashboard.git'
 //          sh 'git checkout -b feature'
       }
     }
