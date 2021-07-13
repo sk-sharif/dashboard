@@ -1,7 +1,7 @@
 version: '3.3'
 services: 
    dashboard:
-      image: akanshagiriya/dashboard01
+      image: akanshagiriya/dashboard02
       ports: 
         - 8084:80
     
