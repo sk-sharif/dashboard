@@ -3,4 +3,4 @@ services:
    dashboard:
       image: akanshagiriya/dashboard01
       ports: 
-        - 8085:80
+        - 8086:80
