@@ -33,7 +33,8 @@ pipeline {
     stage('Deploy') {
       steps{
         script {
-          sh "docker run -d --name admindashboard01 -p 8084:8083 akanshagiriya/dashboard01"
+          sh "docker stack rm dashboard01 || true"
+          sh "docker stack deploy --prune --compose-file docker-compose.yml dashboard01"
         }
       }
     }
